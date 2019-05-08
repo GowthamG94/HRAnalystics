@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May  8 20:49:18 2019
+
+@author: Gowtham G
+"""
+
+df={'fruits':['apple','orange','chicken'],'calories':['95','231','50']}
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import shapiro
+import statistics as stat
+
+dataFrame=pd.DataFrame(df,columns=['fruits','calories'])
+
+
+
+from sklearn.preprocessing import LabelEncoder
+
+la=LabelEncoder()
+
+dataFrame['fruits']=la.fit_transform(dataFrame['fruits'])
+
+print(dataFrame['fruits'])
+
+x=dataFrame['fruits']
+y=dataFrame['calories']
+
+dataFramelinear=pd.get_dummies(x)
+
+
+from sklearn.linear_model import LinearRegression
+
+regression=LinearRegression()
+
+regression.fit(dataFramelinear,y)
