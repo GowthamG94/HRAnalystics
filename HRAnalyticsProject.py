@@ -35,7 +35,7 @@ print(train_Age_Q1,train_Age_Q3,train_Age_IQR)
 train = train[~((train.age<(train_Age_Q1-1.5*train_Age_IQR))|(train.age>(train_Age_Q3+1.5*train_Age_IQR)))]
 sns.boxplot(x=train['age'])
 
-#Training Data - length_of_service outlier removal
+#Training Data - length_of_service outlier removals
 #length_of_service
 train_LengthOfService_Q1 = train['length_of_service'].quantile(0.25)
 train_LengthOfService_Q3 = train['length_of_service'].quantile(0.75)
